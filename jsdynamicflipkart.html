@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EBasket</title>
+    <style>
+        .head{
+            height: 55px;
+            background-color: #2874f0;
+        }
+        .badge{
+            width: 200px;
+            margin-top: 10px;
+            padding: 0
+            overflow-clip-margin: content-box;
+            overflow: clip;
+        }
+        .search-bar{
+            height: 34px;
+            width: 300px; 
+            margin-top: 10px;
+            border-radius: 2px 0 0 2px;
+            border: 0;
+            outline: 0 none;
+            font-family: Roboto,Arial,sans-serif;
+            letter-spacing: 0;
+            font-size: 14px;
+            position: absolute;
+        }
+        .search-icon{
+            background-color: white; 
+            color: #2874f0;
+            height:34px;
+            margin-top: 10px;
+            border-radius: 0 2px 2px 0;
+            border: none;
+            position: relative;
+        }
+        .cart{
+            font-size: 18px; 
+        }
+        .navbox{
+            box-shadow: 0 1px 1px 0 rgb(0 0 0 / 16%);
+        }
+        .main-container{
+            background-color: #e0e0e0;
+            width: 100vw;
+            height: 100vh;
+        }
+        .filter{
+            float: left;
+            background-color: #fff;
+            width: 20vw;
+            margin: 5px;
+        }
+        .filter-text1{
+            font-family: Roboto,Arial,sans-serif;
+            font-weight: 500;
+            margin:10px;
+            padding-top: 10px;
+        }
+        .main-body{
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+        }
+        .text{
+            display: inline-block;
+            width: calc(100% - 80px);
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            padding: 0;
+            text-decoration: none;
+        }
+        .box1{
+            width: 23%;
+            margin: 5px;
+        }
+        .box2{
+            color: #878787;
+            font-weight: 500
+            font-family: Roboto,Arial,sans-serif;
+            letter-spacing: 0;
+
+        }
+        .box3{
+            font-family: Roboto,Arial,sans-serif; 
+            font-size:14px;
+            padding-bottom: 5px;
+
+        }
+        .offer{
+            color: rgb(38, 165, 65);
+        }
+        .card.box1:hover{
+            box-shadow: 8px 8px 8px 8px #999696
+        }
+        .card-body:hover{
+            transform: translate3d(0px, -36.5938px, 0px);
+            position: relative;
+            background: #fff;
+            z-index: 2;
+        }
+    </style>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <header class="head d-flex flex-wrap">
+        <div class="container-fluid">
+                <div class="row">
+                  <div class="col col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <span class="badge"><a href="https://www.flipkart.com/plus"> <img src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/flipkart-plus_8d85f4.png" width="100px; height:30px;"></a></span>
+                  </div>
+                    <div class="col col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <input type="text" class="search-bar row-col-3" placeholder="Search for products,brands and more"><button type="submit" class="search-icon">Go</button></input>
+                        <button  class="row-col-1" style="margin-left: px; height: 30px; width: 100px;background-color:white; border: 1px solid grey; color: #2874f0; border-radius: 2px;" > Login</button>
+                    </div>
+                    <div class="col col-lg-2 col-md-2 col-sm-2 col-xs-2" style="margin-top:10px;">
+                        <span  style=" font-size: 18px; color:white;"><b>Become a seller</b></span>
+                    </div>
+                   <div class="col col-lg-2 col-md-2 col-sm-2 col-xs-2"  style="margin-top:10px;">
+                        <span class="dropdown row-col-1" style="margin-left: 50px;font-size: 18px; color: white;">
+                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" style="color: white;">
+                              <b>More</b>
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><button class="dropdown-item" type="button">Notification  Preference</button></li>
+                              <li><button class="dropdown-item" type="button">24*7 Customer Support</button></li>
+                              <li><button class="dropdown-item" type="button">Download App</button></li>
+                            </ul>
+                        </span>                   
+                    </div>
+                    <div class="col col-lg-2 col-md-2 col-sm-2 col-xs-2" style="margin-top:5px;">
+                        <span class="cart row-col-2"> <a href="https://www.flipkart.com/viewcart?exploreMode=true&preference=FLIPKART" target="_blank"> <button type="button" class="btn btn-outline-dark"><img src="https://cdn.vectorstock.com/i/1000x1000/62/87/flat-design-shopping-cart-vector-13576287.webp" height="35px" width="25px"/>Cart</button></a></span>
+                    </div>
+                </div>
+        </div>
+     </header>
+    <nav class="navbar navbar navbar-expand-lg ">
+        <div class="container d-flex flex-wrap">
+            <div class="row">
+                <div class="col col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Electronics
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </div>              
+                </div>
+            <div class="col col-lg-2 col-md-2 col-sm-2 col-xs-2">
+              <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Tv&Appliances
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Men
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </div>            
+            </div>
+
+              <div class="col col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Women
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </div>             
+            </div>
+
+              <div class="col col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Baby& Kids
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </div>             
+             </div>
+
+              <div class="col col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Home& Furniture
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </div>              
+            </div>
+
+              <div class="col col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Sports
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </div>              
+            </div>
+
+              <div class="col col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Flights
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </div>              
+            </div> 
+        </div>
+    </nav>
+    <div class="main-container">
+        <div class="filter">
+            <div class="container">
+                <div class="row">
+                   <div class="filter-text1"><h5>Filters</h5></div>
+                </div>
+                <hr style="margin-top: 5px; ">
+                <span ><h6>CATEGORIES</h6></span>
+                <ul type=">">
+                    <ol>Watches and Accessorie</ol>
+                    <span style="padding: 20px; color:#2874f0; margin-left: 10px;">Men's wrist watches</span>
+                </ul>
+                <hr>
+                <span ><h6>Select type</h6></span>
+                <ul type=">">
+                    <ol><input type="radio" name="watches" id="button1" onclick="showDigitalWatches('digital');">Digital</ol>
+                    <ol><input type="radio" name="watches"onclick="showDigitalWatches('Analog');"/>Analog</ol>
+                </ul>
+                <hr>
+                <span ><h6>Select Price Range</h6></span>
+                <ul type=">">
+                    <ol><input type="radio" name="watches"/>10000-20000</ol>
+                    <ol><input type="radio" name="watches"/>20000& above</ol>
+                </ul>
+                <hr>
+                <div style="margin-left: 10px;">
+                    <h6> Gender</h6>
+                        <input type="checkbox"/>Male <br/>
+                        <input type="checkbox"/> Female <br/>
+                        <input type="checkbox"/> Male &Female <br/>
+                        <input type="checkbox"/> Unisex <br/>
+                </div>
+                <hr>
+                <div style="margin-left: 10px;">
+                    <h6>Customer Ratings</h6>
+                    <input type="checkbox" name="rating"/>5★ & above <br/>
+                    <input type="checkbox" name="rating"/>4★ & above <br/>
+                    <input type="checkbox" name="rating"/>3★ & above <br/>
+                </div>
+            </div>
+        </div>
+        <div class="conatainer d-flex flex-wrap" id="productsContainer">    
+        </div>
+    </div>  
+    
+    <script>
+        function productTemplate(p){
+            return (
+                '<div class="card box1">\
+               <a href="'+p.linkUrl+'" target="blank" rel="noopener noreferrer"> <img src="'+p.imageUrl+'" class="card-img-top"  style="width:230px; height:250px; padding:10px;" alt="..."></a>\
+                <div class="card-body">\
+                  <span class="box2"><b>'+p.title+'</b><span> </br>\
+                  <span class="IRpwTa text">'+p.description+'</span> \
+                  <div class="box3"> <b>'+p.price+'</b> <span style="color:#878787; padding: 5px;"><strike>'+p.strikeprice+'</strike></span> <span class="offer"> <b>'+p.offer+'off</b></span></div>\
+                </div>\
+            </div>"'
+            );
+        }
+        var products=[{
+            title:"1Emporio Armani",
+            description:"Giovanni Analog Black Dial Men's Watch-AR11349",
+            imageUrl:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/61RnYP3i2TL._AC_UL320_.jpg",
+            linkUrl:"https://www.amazon.in/Emporio-Armani-Giovanni-Analog-Watch-AR11349/dp/B08V3TK36Z/ref=sr_1_1?pf_rd_i=2563504031&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_p=c0043bd7-04fa-4e5e-ab5b-3c68c27b9dd6&pf_rd_r=EYG65HJZ7C706713G0FE&pf_rd_s=merchandised-search-9&qid=1672737947&refinements=p_n_feature_fourteen_browse-bin%3A11142592031%2Cp_89%3AEmporio+Armani&rnid=3837712031&s=watches&sr=1-1",
+            price:"₹27500",
+            strikeprice:"₹35000",
+            offer:"23%"
+        },
+        {
+            title:"2Emporio Armani",
+            description:"Analog Black Dial Men's Watch-AR11275",
+            imageUrl:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/71JCB7IigDL._AC_UL320_.jpg",
+            linkUrl:"https://www.amazon.in/Emporio-Armani-Giovanni-Analog-Watch-AR11349/dp/B08V3TK36Z/ref=sr_1_1?pf_rd_i=2563504031&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_p=c0043bd7-04fa-4e5e-ab5b-3c68c27b9dd6&pf_rd_r=EYG65HJZ7C706713G0FE&pf_rd_s=merchandised-search-9&qid=1672737947&refinements=p_n_feature_fourteen_browse-bin%3A11142592031%2Cp_89%3AEmporio+Armani&rnid=3837712031&s=watches&sr=1-1",
+            price:"₹22446",
+            strikeprice:"₹28700",
+            offer:"34%"
+        },
+        {
+            title:"3Emporio Armani",
+            description:"Mega Chief Digital Black Dial Men's Watch-DZ4593",
+            imageUrl:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/51Bm-3xmTyL._AC_UL320_.jpg",
+            linkUrl:"https://www.amazon.in/Emporio-Armani-Giovanni-Analog-Watch-AR11349/dp/B08V3TK36Z/ref=sr_1_1?pf_rd_i=2563504031&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_p=c0043bd7-04fa-4e5e-ab5b-3c68c27b9dd6&pf_rd_r=EYG65HJZ7C706713G0FE&pf_rd_s=merchandised-search-9&qid=1672737947&refinements=p_n_feature_fourteen_browse-bin%3A11142592031%2Cp_89%3AEmporio+Armani&rnid=3837712031&s=watches&sr=1-1",
+            price:"₹35898",
+            strikeprice:"₹36997",
+            offer:"22%"
+        },
+        {
+            title:"4Emporio Armani",
+            description:"Mega Chief Analog Black Dial Men's Watch-DZ4593",
+            imageUrl:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/71o1ZFkrocL._AC_UL320_.jpg",
+            linkUrl:"https://www.amazon.in/Emporio-Armani-Giovanni-Analog-Watch-AR11349/dp/B08V3TK36Z/ref=sr_1_1?pf_rd_i=2563504031&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_p=c0043bd7-04fa-4e5e-ab5b-3c68c27b9dd6&pf_rd_r=EYG65HJZ7C706713G0FE&pf_rd_s=merchandised-search-9&qid=1672737947&refinements=p_n_feature_fourteen_browse-bin%3A11142592031%2Cp_89%3AEmporio+Armani&rnid=3837712031&s=watches&sr=1-1",
+            price:"₹26777",
+            strikeprice:"₹29887",
+            offer:"12%"
+        },
+        {
+            title:"5Emporio Armani",
+            description:"Mega Chief Digital Black Dial Men's Watch-DZ4593",
+            imageUrl:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/81bE2ZvX2YL._AC_UL320_.jpg",
+            linkUrl:"https://www.amazon.in/Emporio-Armani-Giovanni-Analog-Watch-AR11349/dp/B08V3TK36Z/ref=sr_1_1?pf_rd_i=2563504031&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_p=c0043bd7-04fa-4e5e-ab5b-3c68c27b9dd6&pf_rd_r=EYG65HJZ7C706713G0FE&pf_rd_s=merchandised-search-9&qid=1672737947&refinements=p_n_feature_fourteen_browse-bin%3A11142592031%2Cp_89%3AEmporio+Armani&rnid=3837712031&s=watches&sr=1-1",
+            price:"₹26879",
+            strikeprice:"₹29889",
+            offer:"28%"
+        },
+        {
+            title:"6Emporio Armani",
+            description:"Axial Analog Black Dial Men's Watch-DZT2014",
+            imageUrl:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/81fC2HJ8c6L._AC_UL320_.jpg",
+            linkUrl:"https://www.amazon.in/Emporio-Armani-Giovanni-Analog-Watch-AR11349/dp/B08V3TK36Z/ref=sr_1_1?pf_rd_i=2563504031&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_p=c0043bd7-04fa-4e5e-ab5b-3c68c27b9dd6&pf_rd_r=EYG65HJZ7C706713G0FE&pf_rd_s=merchandised-search-9&qid=1672737947&refinements=p_n_feature_fourteen_browse-bin%3A11142592031%2Cp_89%3AEmporio+Armani&rnid=3837712031&s=watches&sr=1-1",
+            price:"₹21474",
+            strikeprice:"₹23564",
+            offer:"12%"
+        },
+        {
+            title:"7Emporio Armani",
+            description:"Axial Analog Black Dial Men's Watch-DZT2014",
+            imageUrl:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/81FACb8jcOL._AC_UL320_.jpg",
+            linkUrl:"https://www.amazon.in/Emporio-Armani-Giovanni-Analog-Watch-AR11349/dp/B08V3TK36Z/ref=sr_1_1?pf_rd_i=2563504031&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_p=c0043bd7-04fa-4e5e-ab5b-3c68c27b9dd6&pf_rd_r=EYG65HJZ7C706713G0FE&pf_rd_s=merchandised-search-9&qid=1672737947&refinements=p_n_feature_fourteen_browse-bin%3A11142592031%2Cp_89%3AEmporio+Armani&rnid=3837712031&s=watches&sr=1-1",
+            price:"₹12747",
+            strikeprice:"₹17395",
+            offer:"32%"
+        },
+        {
+            title:"8Armani Exchange",
+            description:"Digital Black Dial Men's Watch-AX2952",
+            imageUrl:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/51Rm8vaDvtL._AC_UL320_.jpg",
+            linkUrl:"https://www.amazon.in/Emporio-Armani-Giovanni-Analog-Watch-AR11349/dp/B08V3TK36Z/ref=sr_1_1?pf_rd_i=2563504031&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_p=c0043bd7-04fa-4e5e-ab5b-3c68c27b9dd6&pf_rd_r=EYG65HJZ7C706713G0FE&pf_rd_s=merchandised-search-9&qid=1672737947&refinements=p_n_feature_fourteen_browse-bin%3A11142592031%2Cp_89%3AEmporio+Armani&rnid=3837712031&s=watches&sr=1-1",
+            price:"₹12235",
+            strikeprice:"₹17395",
+            offer:"32%"
+        },{
+            title:"9Armani Exchange",
+            description:"Digital Blue Dial Men's Watch-AX7128",
+            imageUrl:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/81a3np4-3aL._AC_UL320_.jpg",
+            linkUrl:"https://www.amazon.in/Emporio-Armani-Giovanni-Analog-Watch-AR11349/dp/B08V3TK36Z/ref=sr_1_1?pf_rd_i=2563504031&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_p=c0043bd7-04fa-4e5e-ab5b-3c68c27b9dd6&pf_rd_r=EYG65HJZ7C706713G0FE&pf_rd_s=merchandised-search-9&qid=1672737947&refinements=p_n_feature_fourteen_browse-bin%3A11142592031%2Cp_89%3AEmporio+Armani&rnid=3837712031&s=watches&sr=1-1",
+            price:"₹19747",
+            strikeprice:"₹25395",
+            offer:"32%"
+        },{
+            title:"10Emporio Armani",
+            description:"Mega Chief Analog Black Dial Men's Watch-DZ4593",
+            imageUrl:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/61+Ucd9XRvL._AC_UL320_.jpg",
+            linkUrl:"https://www.amazon.in/Emporio-Armani-Giovanni-Analog-Watch-AR11349/dp/B08V3TK36Z/ref=sr_1_1?pf_rd_i=2563504031&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_p=c0043bd7-04fa-4e5e-ab5b-3c68c27b9dd6&pf_rd_r=EYG65HJZ7C706713G0FE&pf_rd_s=merchandised-search-9&qid=1672737947&refinements=p_n_feature_fourteen_browse-bin%3A11142592031%2Cp_89%3AEmporio+Armani&rnid=3837712031&s=watches&sr=1-1",
+            price:"₹12656",
+            strikeprice:"₹17395",
+            offer:"32%"
+        },{
+            title:"11Emporio Armani",
+            description:"Axial Digital Black Dial Men's Watch-DZT2014",
+            imageUrl:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/61hydM2nx0L._AC_UL320_.jpg",
+            linkUrl:"https://www.amazon.in/Emporio-Armani-Giovanni-Analog-Watch-AR11349/dp/B08V3TK36Z/ref=sr_1_1?pf_rd_i=2563504031&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_p=c0043bd7-04fa-4e5e-ab5b-3c68c27b9dd6&pf_rd_r=EYG65HJZ7C706713G0FE&pf_rd_s=merchandised-search-9&qid=1672737947&refinements=p_n_feature_fourteen_browse-bin%3A11142592031%2Cp_89%3AEmporio+Armani&rnid=3837712031&s=watches&sr=1-1",
+            price:"₹13457",
+            strikeprice:"₹17395",
+            offer:"32%"
+        },
+        {
+            title:"12Emporio Armani",
+            description:"Axial Digital Black Dial Men's Watch-DZT2014",
+            imageUrl:"https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/51W9AhhJjvL._AC_UL320_.jpg",
+            linkUrl:"https://www.amazon.in/Emporio-Armani-Giovanni-Analog-Watch-AR11349/dp/B08V3TK36Z/ref=sr_1_1?pf_rd_i=2563504031&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_p=c0043bd7-04fa-4e5e-ab5b-3c68c27b9dd6&pf_rd_r=EYG65HJZ7C706713G0FE&pf_rd_s=merchandised-search-9&qid=1672737947&refinements=p_n_feature_fourteen_browse-bin%3A11142592031%2Cp_89%3AEmporio+Armani&rnid=3837712031&s=watches&sr=1-1",
+            price:"₹17399",
+            strikeprice:"₹19500",
+            offer:"25%"
+        }];
+        var searchDigitalWatches = "";
+        function filterSearchDigital(item) {
+          if (item.description != undefined) {
+            if (
+              item.description.toLowerCase().indexOf(searchDigitalWatches.toLowerCase()) >
+              -1
+            ) {
+              return true;
+            }
+          }else {
+            return false;
+          } 
+        }
+        function showDigitalWatches(type) {
+            var productDivs="";
+          searchDigitalWatches = type;
+          var filteredDigitalProducts = products.filter(filterSearchDigital);
+          console.log("filtered",filteredDigitalProducts);
+          for (var i = 0; i < filteredDigitalProducts.length; i = i + 1) {
+            var currentProduct = filteredDigitalProducts[i];
+            var productCard = productTemplate(currentProduct);
+            productDivs = productDivs + productCard;
+          }
+          document.getElementById("productsContainer").innerHTML = productDivs;
+          
+        }
+        showDigitalWatches("");
+        
+        
+
+
+    </script>
+
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
